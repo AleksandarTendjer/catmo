@@ -15,6 +15,15 @@ export default {
 				frutigerBlue: "#3BAFDA",
 				frutigerGreen: "#91E4C1",
 				frutigerOrange: "#FDB44B",
+				frutigerLightBlue: "#AEE3F4", // Between frutigerPaleBlue and frutigerBlue
+				frutigerLightGreen: "#C9F6E0", // Between frutigerPaleGreen and frutigerGreen
+				frutigerLightOrange: "#FDE2C8", // Between frutigerPaleOrange and frutigerOrange
+				frutigerAqua: "#76D8D2", // Between frutigerBlue and frutigerGreen
+				frutigerGoldenOrange: "#FFC27E", // Between frutigerOrange and frutigerPaleOrange
+				frutigerMint: "#B5EBDB", // Between frutigerGreen and frutigerPaleGreen
+			},
+			cursor: {
+				next: "url('/assets/imgs/next_gif.gif'), auto",
 			},
 			backgroundImage: {
 				"gradient-to-via":

@@ -5,7 +5,6 @@ import { ObjectId } from "mongodb";
 
 export async function PUT(req: Request) {
 	try {
-		// Retrieve the dynamic ID from the request URL
 		const url = new URL(req.url);
 		const id = url.pathname.split("/").pop();
 
@@ -24,10 +23,9 @@ export async function PUT(req: Request) {
 			{ $inc: { likeCount: 1 } },
 			{ returnDocument: "after" }
 		);
-
-		if (result?.value) {
+		if (result?.image) {
 			return NextResponse.json(
-				{ likeCount: result.value.likeCount },
+				{ likeCount: result.likeCount },
 				{ status: 200 }
 			);
 		} else {
