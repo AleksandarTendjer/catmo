@@ -53,7 +53,7 @@ export default function RandomCat() {
 	return (
 		<div>
 			<img
-				src={"/assets/imgs/catracing.gif"}
+				src={"/assets/imgs/catRacing.gif"}
 				className="absolute top-10 left-1/2 transform -translate-x-1/2 w-full h-auto"
 			/>
 			<div className="relative border-4 border-x-frutigerLightGreen border-y-frutigerLightBlue">
