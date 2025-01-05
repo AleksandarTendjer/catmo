@@ -29,8 +29,17 @@ export default function RootLayout({
 		<html lang="en">
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-				<div className="h-screen w-screen bg-gradient-to-br from-frutigerPaleBlue via-frutigerPaleGreen to-frutigerPaleOrange flex items-center justify-center overflow-hidden">
-					{children}
+				<div className="min-h-screen flex flex-col bg-gradient-to-br from-frutigerPaleBlue via-frutigerPaleGreen to-frutigerPaleOrange overflow-hidden">
+					<div className="flex-grow flex items-center justify-center">
+						{children}
+						<footer className="absolute bottom-0 z-10 left-0 right-0 text-center text-base py-4 bg-transparent text-slate-400 w-full">
+							© 2024{" "}
+							<a href="https://alextendjer.com" className="underline">
+								Aleksandar Tendjer
+							</a>
+							. All rights reserved.
+						</footer>
+					</div>
 				</div>
 			</body>
 		</html>
