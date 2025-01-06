@@ -1,12 +1,13 @@
 "use client";
 import { Spin, message } from "antd";
 import { useState, useEffect } from "react";
+import { Cat } from "lucide-react";
 
 export default function RandomCat() {
 	const [catImage, setCatImage] = useState<string | null>(null);
 	const [catId, setCatId] = useState<string | null>(null);
 	const [messageApi, contextHolder] = message.useMessage();
-
+	const [fed, setFed] = useState<boolean>(false);
 	async function fetchRandomCat() {
 		try {
 			const response = await fetch("/api/randomCat");
@@ -14,6 +15,7 @@ export default function RandomCat() {
 				const data = await response.json();
 				setCatImage(data.image);
 				setCatId(data._id);
+				setFed(false);
 			} else {
 				console.error("Failed to fetch random cat");
 			}
@@ -33,10 +35,13 @@ export default function RandomCat() {
 			});
 
 			if (response.ok) {
+				setFed(true);
+				console.log(fed);
 				await response.json();
 				messageApi.open({
 					type: "success",
-					content: "The cat is pet!",
+					icon: <Cat />,
+					content: "Meeeeow !",
 				});
 			} else {
 				console.error("Failed to pet the cat");
@@ -78,9 +83,15 @@ export default function RandomCat() {
 				<div className="mt-4 text-center flex justify-between">
 					<button
 						onClick={petTheCat}
-						className="mt-2 rounded-md  bg-gradient-to-via from-frutigerAqua  via-frutigerGreen to-frutigerOrange px-2 py-2 text-xs font-semibold text-white shadow-md hover:bg-indigo-500 focus:outline-none">
+						disabled={fed}
+						className={`mt-2 rounded-md  ${
+							fed
+								? "bg-gray-400 cursor-not-allowed"
+								: "bg-gradient-to-r from-frutigerAqua via-frutigerGreen to-frutigerOrange hover:bg-indigo-500"
+						} px-2 py-2 text-xs font-semibold text-white shadow-md hover:bg-indigo-500 focus:outline-none `}>
 						Deserves a treat! 🍖
 					</button>
+
 					<button
 						onClick={fetchRandomCat}
 						className="mt-2 rounded-md bg-gradient-to-r from-frutigerBlue to-frutigerGreen  text-xs font-semibold px-2 py-2 text-white shadow-md hover:bg-indigo-500 focus:outline-none">

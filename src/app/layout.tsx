@@ -32,7 +32,7 @@ export default function RootLayout({
 				<div className="min-h-screen flex flex-col bg-gradient-to-br from-frutigerPaleBlue via-frutigerPaleGreen to-frutigerPaleOrange overflow-hidden">
 					<div className="flex-grow flex items-center justify-center">
 						{children}
-						<footer className="absolute bottom-0 z-10 left-0 right-0 text-center text-base py-4 bg-transparent text-slate-400 w-full">
+						<footer className="absolute bottom-0 z-10 left-0 right-0 text-center text-xs sm:text-base py-4 bg-transparent text-slate-400 w-full">
 							© 2024{" "}
 							<a href="https://alextendjer.com" className="underline">
 								Aleksandar Tendjer
