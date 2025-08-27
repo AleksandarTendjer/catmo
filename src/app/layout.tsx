@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Image from "next/image";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -29,16 +30,23 @@ export default function RootLayout({
 		<html lang="en">
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-				<div className="min-h-screen flex flex-col bg-gradient-to-br from-frutigerPaleBlue via-frutigerPaleGreen to-frutigerPaleOrange overflow-hidden">
-					<div className="flex-grow flex items-center justify-center">
+				<div className="min-h-screen flex flex-col  overflow-hidden relative">
+					<Image
+						src="/assets/imgs/bird.gif"
+						alt="star"
+						width={40}
+						height={40}
+						className="absolute bottom-2 left-2"
+					/>
+					<Image
+						src="/assets/imgs/bug.gif"
+						alt="star"
+						width={40}
+						height={40}
+						className="absolute bottom-2 right-2"
+					/>
+					<div className="flex-grow flex items-center justify-center bg-blue-300/70 ">
 						{children}
-						<footer className="absolute bottom-0 z-10 left-0 right-0 text-center text-xs sm:text-base py-4 bg-transparent text-slate-400 w-full">
-							© 2025{" "}
-							<a href="https://alextendjer.com" className="underline">
-								Aleksandar Tendjer
-							</a>
-							. All rights reserved.
-						</footer>
 					</div>
 				</div>
 			</body>

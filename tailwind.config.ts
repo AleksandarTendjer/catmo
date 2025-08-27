@@ -8,6 +8,12 @@ export default {
 	],
 	theme: {
 		extend: {
+			fontFamily: {
+				Catfiles: ['"Catfiles"', "sans-serif"],
+				Checkbook: ['"Checkbook"', "sans-serif"],
+				Bitwise: ['"Bitwise"', "sans-serif"],
+				Prototype: ['"Prototype"', "sans-serif"],
+			},
 			colors: {
 				frutigerPaleBlue: "#E8F8FF",
 				frutigerPaleGreen: "#F2FFF9",

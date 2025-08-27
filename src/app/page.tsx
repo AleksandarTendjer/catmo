@@ -1,102 +1,157 @@
 "use client";
-import { useState, useEffect } from "react";
-interface Bubble {
-	id: number;
-	catImage: string;
-	top: number;
-	left: number;
-	animationDelay: number;
-}
+import Image from "next/image";
+import { InView } from "./components/InView";
+import { motion } from "framer-motion";
+
 export default function Home() {
-	const [bubbles, setBubbles] = useState<Bubble[]>([]);
-
-	useEffect(() => {
-		// Array of cat images
-		const catImages = [
-			"assets/imgs/cat1.jpg",
-			"assets/imgs/cat2.jpg",
-			"assets/imgs/cat3.jpg",
-			"assets/imgs/cat4.jpg",
-		];
-
-		// Generate bubble positions
-		const generateBubbles = () => {
-			return Array.from({ length: 4 }, (_, i) => ({
-				id: i,
-				catImage: catImages[i % catImages.length],
-				top: Math.random() * 100, // Random top position
-				left: Math.random() * 100, // Random left position
-				animationDelay: Math.random() * 5, // Random animation delay
-			}));
-		};
-
-		setBubbles(generateBubbles());
-	}, []);
 	return (
-		<div className="relative">
-			<div className="absolute inset-0 z-0 pointer-events-none">
-				{bubbles.map((bubble) => (
-					<div
-						key={bubble.id}
-						className="absolute animate-float"
-						style={{
-							top: `${bubble.top}%`,
-							left: `${bubble.left}%`,
-							animationDelay: `${bubble.animationDelay}s`,
-						}}>
-						<div className="relative w-32 h-32">
-							<img
-								src="assets/imgs/bubble.png" // Your bubble image path
-								alt="Bubble"
-								className="absolute inset-0 w-full h-full"
-							/>
-							<img
-								src={bubble.catImage}
-								alt="Cat in Bubble"
-								className="absolute inset-0 m-auto w-20 h-20 object-cover rounded-full"
-							/>
-						</div>
+		<div className="flex  flex-col   items-center justify-center p-10">
+			<div className="  mx-auto max-w-2xl py-12 sm:py-48 lg:py-36">
+				<div className="justify-center flex flex-col ">
+					<div className="flex flex-row w-full justify-center text-center">
+						<Image
+							src={"/assets/imgs/carwalk1.gif"}
+							alt={"exclamation"}
+							width={30}
+							height={30}
+							className="shadow-sm rounded-lg"
+							unoptimized
+						/>{" "}
+						<motion.h1
+							animate={{ scale: [1, 1.04, 1] }}
+							transition={{
+								duration: 1.5,
+								repeat: Infinity,
+								ease: "easeInOut",
+							}}
+							className=" text-xl sm:text-6xl lg:text-7xl font-Catfiles font-semibold tracking-tight   uppercase whitespace-nowrap  text-[#660b31b6]">
+							Welcome to Catmo, friend{" "}
+						</motion.h1>
+						<Image
+							src={"/assets/imgs/carwalk2.gif"}
+							alt={"exclamation"}
+							width={30}
+							height={30}
+							className="shadow-sm rounded-lg"
+							unoptimized
+						/>{" "}
 					</div>
-				))}
-			</div>
-			<div
-				className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
-				aria-hidden="true">
-				<div
-					className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-					style={{
-						clipPath:
-							"polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
-					}}></div>
-			</div>
-			<div className="relative z-10 mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-				<div className="text-center ">
-					<h1 className="text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl">
-						Feeling stuck or uninspired?
-					</h1>
-					<p className="mt-8 text-lg font-medium text-gray-500 sm:text-xl/8">
-						Bored at your job, waiting for something, or not feeling your best?
-						Look at some cats, and maybe it will get better. At the very least,
-						the time will pass!
-					</p>
-					<div className="mt-10 flex items-center justify-center gap-x-6">
-						<a
-							href="/cats"
-							className="rounded-md bg-frutigerAqua px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-							See Random Cats
-						</a>
-					</div>
+					<motion.p className="p-5 mt-10 text-center flex flex-row font-semibold text-xl font-Prototype bg-black/20 rounded-lg  text-white/90">
+						{" "}
+						A whimsical wrold where goofy cats are stars- you give them treats,
+						and the most treated one shines as the Cat of the Month
+					</motion.p>
 				</div>
 			</div>
-			<div
-				className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-				aria-hidden="true">
-				<div
-					className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
-					style={{
-						clipPath:
-							"polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
-					}}></div>
+
+			<div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-20">
+				<InView
+					variants={{
+						hidden: {
+							opacity: 0,
+							x: 100,
+						},
+						visible: {
+							opacity: 1,
+							x: 0,
+						},
+					}}
+					transition={{ duration: 0.3, ease: "easeInOut" }}
+					viewOptions={{ margin: "0px 0px -350px 0px" }}>
+					<div className="text-center ">
+						<div className=" bg-opacity-50  bg-gradient-to-r from-[#3B6064] via-[#CFD8D7] to-[#B5C9C3] animate-gradient bg-[length:200%_200%] rounded-lg shadow-lg shadow-slate-500 mt-10">
+							<div className="p-10 justify-center flex flex-col">
+								<h1 className=" text-xl  font-semibold tracking-tight flex flex-row text-center justify-between w-full font-Catfiles text-[#660b31b6]">
+									<Image
+										src={"/assets/imgs/birthday.gif"}
+										alt={"larry"}
+										width={20}
+										height={10}
+										className="shadow-sm rounded-lg"
+										unoptimized
+									/>
+									Meet our Cat of the Month - crowned by you and your fellow
+									Catmoers:{" "}
+									<Image
+										src={"/assets/imgs/party1.gif"}
+										alt={"larry"}
+										width={20}
+										height={10}
+										className="shadow-sm rounded-lg"
+										unoptimized
+									/>
+								</h1>
+								<Image
+									src={"/assets/imgs/larry.gif"}
+									alt={"larry"}
+									width={500}
+									height={800}
+									className="lg:mt-5 shadow-sm rounded-lg p-10"
+									unoptimized
+								/>
+							</div>
+						</div>
+					</div>
+				</InView>
+			</div>
+			<div className="  mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+				<InView
+					variants={{
+						hidden: {
+							opacity: 0,
+							scale: 1.5,
+						},
+						visible: {
+							opacity: 1,
+							scale: 1,
+						},
+					}}
+					transition={{ duration: 0.3, ease: "easeInOut" }}
+					viewOptions={{ margin: "0px 0px -350px 0px" }}>
+					<div className="text-center ">
+						<h1 className="	 font-Prototype w-full whitespace-break-spaces font-semibold tracking-tight  sm:text-5xl text-white/70">
+							Now there friend, your journey starts with a choice...
+						</h1>
+
+						<div className="mt-10 flex flex-row w-full items-center justify-between gap-x-6">
+							<motion.a
+								href="/cats"
+								whileHover={{ scale: 1.1 }}
+								transition={{ type: "spring", stiffness: 300 }}
+								className="text-[#1616acb6] text-lg whitespace-break-spaces text-center justify-center flex flex-col items-center">
+								{" "}
+								<Image
+									src={"/assets/imgs/milkBottle.gif"}
+									alt={"larry"}
+									width={200}
+									height={200}
+									className="lg:mt-5 shadow-sm rounded-lg p-10 font-Prototype"
+								/>
+								<p className=" font-Prototype">
+									Take the blue pill to stay in wonderland{" "}
+								</p>
+							</motion.a>
+							<motion.a
+								href="/catquiz"
+								whileHover={{ scale: 1.1 }}
+								transition={{ type: "spring", stiffness: 300 }}
+								className="text-[#660b31b6] text-lg  tracking-tight whitespace-break-spaces text-center justify-center flex flex-col items-center">
+								<Image
+									src={"/assets/imgs/redFish.gif"}
+									alt={"larry"}
+									width={200}
+									height={200}
+									className="lg:mt-5 shadow-sm rounded-lg p-10  "
+									unoptimized
+								/>
+								<p className=" font-Prototype">
+									{" "}
+									Take the red pill to see how far the rabbit hole goes{" "}
+								</p>
+							</motion.a>
+						</div>
+					</div>
+				</InView>
 			</div>
 		</div>
 	);
