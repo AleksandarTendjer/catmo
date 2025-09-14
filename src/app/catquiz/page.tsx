@@ -83,10 +83,19 @@ export default function WhichCatAreYou() {
 		E: "Elegant Posh Cat 💎 (graceful, clean, classy — basically feline royalty)",
 		F: "Stray Survivor Cat 🐾 (scrappy, resourceful, and charmingly street-smart)",
 	};
+	const resultImageMap = {
+		A: "/assets/imgs/couchCat.png",
+		C: "/assets/imgs/mysteriouscat.png",
+		D: "/assets/imgs/goofyCat.png",
+		E: "/assets/imgs/poshCat.png",
+		F: "/assets/imgs/strayCat.png",
+	};
 	const [answers, setAnswers] = useState<
 		(null | "A" | "C" | "D" | "E" | "F")[]
 	>(Array(questions.length).fill(null));
 	const [result, setResult] = useState<string | null>(null);
+	const [resultImg, setResultImg] = useState<string | null>(null);
+
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -152,7 +161,11 @@ export default function WhichCatAreYou() {
 			<div className="col-span-1 row-span-1 justify-center items-center flex">
 				<Modal title="Your Cat Match:" open={isModalOpen} onOk={handleOk}>
 					<p>{result}</p>
-					<img src="/cute-cat.png" alt="Cat result" className="mt-4 rounded" />
+					<img
+						src={resultImg ?? "cutecat.png"}
+						alt="Cat result"
+						className="mt-4 rounded"
+					/>
 				</Modal>{" "}
 				<button
 					onClick={() => {
@@ -173,6 +186,7 @@ export default function WhichCatAreYou() {
 								Object.keys(count) as ("A" | "C" | "D")[]
 							).reduce((a, b) => (count[a] > count[b] ? a : b));
 							setResult(resultMap[mostCommon]);
+							setResultImg(resultImageMap[mostCommon]);
 							showModal();
 						}
 					}}
