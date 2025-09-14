@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { DndContext } from "@dnd-kit/core";
 import { useDraggable, useDroppable } from "@dnd-kit/core";
-
+import { motion } from "motion/react";
 function DraggableTreat() {
 	const { attributes, listeners, setNodeRef, transform } = useDraggable({
 		id: "treat",

@@ -29,9 +29,17 @@ export default function Home() {
 
 	return (
 		<div className="flex  flex-col   items-center justify-center p-10">
-			<div className=" mx-auto max-w-2xl py-12 sm:py-48 lg:py-36">
-				<div className="justify-center flex flex-col ">
-					<div className="flex flex-row w-full justify-center text-center">
+			<div className=" mx-auto max-w-2xl ">
+				<div className="justify-center flex flex-col py-10 ">
+					<Image
+						src={"/assets/imgs/anibutterfly2.gif"}
+						alt={"butterfly"}
+						width={100}
+						height={100}
+						className="shadow-none rounded-lg w-full h-10"
+						unoptimized
+					/>{" "}
+					<div className="flex flex-row w-full justify-center text-center py-12 sm:py-48 lg:py-36">
 						<Image
 							src={"/assets/imgs/carwalk1.gif"}
 							alt={"exclamation"}
@@ -61,7 +69,7 @@ export default function Home() {
 					</div>
 					<motion.p className="p-5 mt-10 text-center flex flex-row font-semibold text-xl font-Prototype  bg-black/20 rounded-lg  text-[#660b31b6]/90">
 						{" "}
-						A whimsical wrold where goofy cats are stars- you give them treats,
+						A whimsical wrold where goofy cats are stars - you give them treats,
 						and the most treated one shines as the Cat of the Month
 					</motion.p>
 				</div>
@@ -160,7 +168,7 @@ export default function Home() {
 									alt={"catBowl"}
 									width={200}
 									height={200}
-									className="lg:mt-5 shadow-sm rounded-lg p-10 font-Prototype"
+									className="lg:mt-5  rounded-lg p-10 font-Prototype"
 								/>
 								<p className=" font-Prototype">
 									Take the blue pill to stay in wonderland - scroll cats
@@ -176,7 +184,7 @@ export default function Home() {
 									alt={"catInBox"}
 									width={200}
 									height={200}
-									className="lg:mt-5 shadow-sm rounded-lg p-10  "
+									className="lg:mt-5 rounded-lg p-10  "
 									unoptimized
 								/>
 								<p className=" font-Prototype">
