@@ -13,6 +13,7 @@ export default {
 				Checkbook: ['"Checkbook"', "sans-serif"],
 				Bitwise: ['"Bitwise"', "sans-serif"],
 				Prototype: ['"Prototype"', "sans-serif"],
+				MarnyRegular: ['"MarnyRegular"', "sans-serif"],
 			},
 			colors: {
 				frutigerPaleBlue: "#E8F8FF",

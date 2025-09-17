@@ -194,6 +194,39 @@ export default function Home() {
 								</p>
 							</motion.a>
 						</div>
+						<div className="mt-10 flex flex-col w-full items-center justify-between"></div>
+					</div>
+				</InView>
+				<InView
+					variants={{
+						hidden: {
+							opacity: 0,
+							scale: 1.5,
+						},
+						visible: {
+							opacity: 1,
+							scale: 1,
+						},
+					}}
+					transition={{ duration: 0.3, ease: "easeInOut" }}
+					viewOptions={{ margin: "0px 0px -350px 0px" }}>
+					<div className="mt-10 flex flex-col w-full items-center justify-between text-center">
+						<h2 className="w-full font-Prototype">
+							Even the cats on catmo know that Israeli armed forces are
+							commiting genocide in Gaza, killing innocent people in air
+							strikes, destorying the most necessary infrastructure such as
+							water sources, and starving them to death. Thus they are saying:
+						</h2>
+						<h1 className="font-MarnyRegular w-full text-5xl text-nowrap sm:mt-10">
+							Free Free Palestine!
+						</h1>
+						<Image
+							src={"/assets/imgs/catsForPalestine.jpg"}
+							alt={"catInBox"}
+							width={200}
+							height={200}
+							className="lg:mt-5 rounded-lg p-10  "
+						/>
 					</div>
 				</InView>
 			</div>

@@ -21,13 +21,13 @@ function DraggableTreat() {
 			{...listeners}
 			{...attributes}
 			style={style}
-			className="cursor-grab ">
+			className="cursor-grab touch-none">
 			<Image
 				src="/assets/imgs/pate.jpg"
 				width={100}
 				height={100}
 				alt="treat"
-				className="rounded-full mb-6 sm:mb-1"
+				className="rounded-full mb-6 sm:mb-1 pointer-events-none"
 				unoptimized
 			/>
 		</div>

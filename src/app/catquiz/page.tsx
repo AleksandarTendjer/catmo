@@ -129,8 +129,17 @@ export default function WhichCatAreYou() {
 					{questions[currentIndex].text}
 				</h1>
 			</div>
+			<div className="row-span-1 col-span-1 flex items-center justify-center">
+				<Image
+					src={"/assets/imgs/catThinking.gif"}
+					width={100}
+					height={100}
+					alt="cat thinking"
+					className="align-top self-center  p-5"
+				/>
+			</div>
 			<div
-				className=" self-center justify-self-center flex flex-col row-span-10 py-5 px-5 sm:p-10 bg-[url(/assets/imgs/bgQuizForm.png)]  sm:min-w-80 w-80 bg-clip-border bg-no-repeat bg-contain"
+				className=" self-center justify-self-center flex flex-col row-span-10  sm:p-12 bg-[url(/assets/imgs/bgQuizForm.png)]  sm:min-w-80 w-80 bg-clip-border bg-no-repeat bg-contain"
 				style={{ width: "80vw", maxWidth: "400px" }}>
 				<AnimatePresence mode="wait">
 					<motion.div
@@ -139,7 +148,7 @@ export default function WhichCatAreYou() {
 						animate={{ opacity: 1, x: 0 }}
 						exit={{ opacity: 0, x: -100 }}
 						transition={{ duration: 0.4 }}
-						className=" rounded text-blue-600 text-opacity-65 p-5">
+						className=" rounded text-blue-600 text-opacity-65 p-10 sm:p-5">
 						<div className="text-sm ">
 							{questions[currentIndex].options.map((opt, i) => (
 								<label key={i} className="block mb-1">
@@ -161,11 +170,20 @@ export default function WhichCatAreYou() {
 			<div className="col-span-1 row-span-1 justify-center items-center flex">
 				<Modal title="Your Cat Match:" open={isModalOpen} onOk={handleOk}>
 					<p>{result}</p>
-					<img
-						src={resultImg ?? "cutecat.png"}
-						alt="Cat result"
-						className="mt-4 rounded"
-					/>
+					{result === resultMap["F"] ? (
+						<iframe
+							src="/assets/pdfs/welovethecatsofthegardenramp.pdf"
+							width="100%"
+							height="500px"
+							style={{ border: "none" }}
+						/>
+					) : (
+						<img
+							src={resultImg ?? "cutecat.png"}
+							alt="Cat result"
+							className="mt-4 rounded"
+						/>
+					)}
 				</Modal>{" "}
 				<button
 					onClick={() => {
@@ -204,11 +222,26 @@ export default function WhichCatAreYou() {
 					)}
 				</button>
 			</div>
-			<div className="row-span-1 col-span-1 flex items-center justify-center">
+
+			<div className="mt-6 mb-5 text-center w-full flex flex-row items-center justify-center">
 				<Image
-					src={"/assets/imgs/catThinking.gif"}
-					width={100}
-					height={100}
+					src={"/assets/imgs/bug.gif"}
+					width={80}
+					height={50}
+					alt="cat thinking"
+					className="align-top self-center  p-5"
+				/>
+				<a
+					href="https://www.3ptitschatsrentais.fr/dons"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="text-purple-600 font-semibold hover:underline">
+					Donate to a cat orphanage{" "}
+				</a>
+				<Image
+					src={"/assets/imgs/bird.gif"}
+					width={80}
+					height={50}
 					alt="cat thinking"
 					className="align-top self-center  p-5"
 				/>
